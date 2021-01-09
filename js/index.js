@@ -1,13 +1,29 @@
 const generateBtnElem = document.querySelector('#getQuote');
 const appElem = document.querySelector('#app');
 
-const jsonDataUrl = '../data/quotes.json';
+const generateQuote = () => {
+    getQuotesData().then(results => {
+        const dataAmount = results.length;
 
-const getQuote = async () => {
+        let randomQuoteNumb = getRandomQuoteNumb(dataAmount);
+
+        const { avatar, author, title, quote } = results[randomQuoteNumb];
+        console.log(author);
+
+    }).catch(error => {
+        console.log(error);
+    });
+};
+
+const getQuotesData = async () => {
+    const jsonDataUrl = '../data/quotes.json';
+
     const response = await fetch(jsonDataUrl);
     const data = await response.json();
 
-    findOutTheAmountOfData(data);
+    return data;
+
+    // findOutTheAmountOfData(data);
 
     // const dataAmount = data.length;
 
@@ -42,4 +58,4 @@ const displayQuoteElem = (data, randomQuoteNumb) => {
     appElem.appendChild(avatarElem);
 };
 
-generateBtnElem.addEventListener('click', getQuote);
+generateBtnElem.addEventListener('click', generateQuote);
