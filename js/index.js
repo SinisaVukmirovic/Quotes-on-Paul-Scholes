@@ -3,12 +3,15 @@ const appElem = document.querySelector('#app');
 
 const generateQuote = () => {
     getQuotesData().then(results => {
-        const dataAmount = results.length;
+        const amountOfData = results.length;
 
-        let randomQuoteNumb = getRandomQuoteNumb(dataAmount);
+        let randomQuoteNumb = getRandomQuoteNumb(amountOfData);
+        let randomedQuote = results[randomQuoteNumb];
 
-        const { avatar, author, title, quote } = results[randomQuoteNumb];
-        console.log(author);
+        // const { avatar, author, title, quote } = results[randomQuoteNumb];
+        // console.log(author);
+
+        displayQuoteInfo(randomedQuote);
 
     }).catch(error => {
         console.log(error);
@@ -23,39 +26,34 @@ const getQuotesData = async () => {
 
     return data;
 
-    // findOutTheAmountOfData(data);
-
-    // const dataAmount = data.length;
-
     // let randomQuoteNumb = getRandomQuoteNumb(dataAmount);
     
-    // displayQuoteElem(data, randomQuoteNumb);
-};
-
-const findOutTheAmountOfData = (data) => {
-    const amountOfData = data.length;
-
-    let randomQuoteNumb = getRandomQuoteNumb(amountOfData);
-    
-    displayQuoteElem(data, randomQuoteNumb);
+    // displayQuoteInfo(data, randomQuoteNumb);
 };
 
 const getRandomQuoteNumb = (amountOfData) => {
-    
-    // let randomQuoteNumb = Math.floor(Math.random() * amountofData);
     return Math.floor(Math.random() * amountOfData);
 };
 
-const displayQuoteElem = (data, randomQuoteNumb) => {
-    const { avatar, author, title, quote } = data[randomQuoteNumb];
 
-    const avatarElem = document.createElement('img');
+const displayQuoteInfo = (randomedQuote) => {
+    // const { avatar, author, title, quote } = data[randomQuoteNumb];
+    const { avatar, author, title, quote } = randomedQuote;
+
+    appElem.innerHTML = `
+        <img src=${avatar} alt="Profile image of the Quote author">
+        <h3>${author}</h3>
+        <span>${title}</span>
+        <p>${quote}</p>
+    `;
+
+    // const avatarElem = document.createElement('img');
 
     // console.log(quote);
-    avatarElem.setAttribute('src', avatar);
-    avatarElem.setAttribute('alt', 'Profile image of the author');
-    // avatar.alt = `${data[33].avatar}`;
-    appElem.appendChild(avatarElem);
+    // avatarElem.setAttribute('src', avatar);
+    // avatarElem.setAttribute('alt', 'Profile image of the author');
+    // // avatar.alt = `${data[33].avatar}`;
+    // appElem.appendChild(avatarElem);
 };
 
 generateBtnElem.addEventListener('click', generateQuote);

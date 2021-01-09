@@ -1,1 +1,22 @@
 @import './reset.css';
+
+#app {
+    display: grid;
+    grid-template-areas: 'I A'
+                         'I T'
+                         'Q Q';
+    max-width: 30rem;
+}
+
+#app img {
+    grid-area: I;
+}
+#app h3 {
+    grid-area: A;
+}
+#app span {
+    grid-area: T;
+}
+#app p {
+    grid-area: Q;
+}
