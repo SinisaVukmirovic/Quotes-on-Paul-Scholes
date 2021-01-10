@@ -1,6 +1,14 @@
 @import './reset.css';
 
-#app {
+h1 {
+    color: lime;
+}
+    h1 span {
+        color: red;
+        
+    }
+
+.quote {
     display: grid;
     grid-template-areas: 'I A'
                          'I T'
@@ -8,15 +16,15 @@
     max-width: 30rem;
 }
 
-#app img {
+.quote img.image {
     grid-area: I;
 }
-#app h3 {
+.quote h3 {
     grid-area: A;
 }
-#app span {
+.quote span {
     grid-area: T;
 }
-#app p {
+.quote p {
     grid-area: Q;
 }
