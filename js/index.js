@@ -43,7 +43,9 @@ const displayQuoteInfo = (randomedQuote) => {
 
     quoteElem.innerHTML = `
         <img class="image" src=${avatar} alt="Profile image of the Quote author">
-        
+        <h3>${author}</h3>
+        <span>${title}</span>
+        <p>${quote}</p>
     `;
 
     // const avatarElem = document.createElement('img');
@@ -56,7 +58,3 @@ const displayQuoteInfo = (randomedQuote) => {
 };
 
 generateBtnElem.addEventListener('click', generateQuote);
-
-{/* <h3>${author}</h3>
-        <span>${title}</span>
-        <p>${quote}</p> */}
