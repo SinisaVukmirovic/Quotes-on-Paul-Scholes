@@ -43,7 +43,7 @@ const displayQuoteInfo = (randomedQuote) => {
 
     quoteElem.innerHTML = `
         <img class="image" src=${avatar} alt="Profile image of the Quote author">
-        <h3>${author}</h3>
+        <h2>${author}</h2>
         <span>${title}</span>
         <p>${quote}</p>
     `;
