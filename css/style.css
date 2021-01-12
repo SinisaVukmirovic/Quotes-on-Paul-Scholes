@@ -46,9 +46,11 @@ header {
 main.app {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: flex-start; */
     width: 90%;
     max-width: 40rem;
-    margin: 0 auto 0 5%;
+    margin: 0 auto;
 }
 
 .button {    
@@ -80,43 +82,52 @@ main.app {
 .quote-elem {
     display: grid;
     
-    justify-items: flex-start;
-    align-items: center;
+    /* justify-content: flex-start;
+    align-content: flex-start; */
     grid-template-areas: 'I A'
                          'I T'
                          'Q Q';
     /* max-width: 30rem; */
-    margin: 3rem auto;
+    margin: 3rem auto 3rem 0;
+    grid-auto-columns: 1fr 2fr;
 }
 
 .quote-elem img.image {
     grid-area: I;
-    border-radius: 50%;
-    border: 4px solid #fff;
     width: 6rem;
+    height: auto;
+    margin: auto 2rem -1rem;
+    /* border-radius: 50%; */
+    border-radius: .5rem;
+    border: 2px solid #fff;
     /* margin-left: 2rem;
     margin-bottom: -1rem; */
-    transform: translateX(1.5rem) translateY(1rem);
+    /* transform: translateX(1.5rem) translateY(1rem); */
+    /* margin: auto 0 -1rem 1rem; */
 }
 .quote-elem h2.author {
     grid-area: A;
     font-size: 1.75rem;
-    transform: translateX(-.5rem) translateY(1.5rem);
+    /* transform: translateX(-.5rem) translateY(1.5rem); */
+    align-self: flex-end;
+    /* margin: 1.5rem .5rem auto 0; */
 }
 .quote-elem span.desc {
     grid-area: T;
-    transform: translateX(-.5rem);
+    /* transform: translateX(-.5rem); */
+    align-self: flex-start;
+
 }
 .quote-elem p.quote {
     grid-area: Q;
 
     background: linear-gradient(90deg, var(--theme), transparent);
-    padding: 2rem 2.5rem 1rem 1rem;
+    padding: 2rem 1rem 1rem;
     color: #fff;
     font-size: 1.25rem;
     font-style: italic;
     font-weight: bold;
-    border-left: solid 4px #fff;
+    border-left: solid 5px #fff;
 }
 
 @media (min-width: 414px) {
