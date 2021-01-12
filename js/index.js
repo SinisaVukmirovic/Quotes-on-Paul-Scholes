@@ -1,6 +1,7 @@
 const app = document.querySelector('main.app');
+
 const generateBtnElem = app.querySelector('#getQuote');
-const quoteElem = app.querySelector('.quote');
+const quoteElem = app.querySelector('.quote-elem');
 
 const generateQuote = () => {
     getQuotesData().then(results => {
@@ -9,7 +10,7 @@ const generateQuote = () => {
         let randomQuoteNumb = getRandomQuoteNumb(amountOfData);
         let randomedQuote = results[randomQuoteNumb];
 
-        // const { avatar, author, title, quote } = results[randomQuoteNumb];
+        // const { avatar, author, desc, quote } = results[randomQuoteNumb];
         // console.log(author);
 
         displayQuoteInfo(randomedQuote);
@@ -38,14 +39,14 @@ const getRandomQuoteNumb = (amountOfData) => {
 
 
 const displayQuoteInfo = (randomedQuote) => {
-    // const { avatar, author, title, quote } = data[randomQuoteNumb];
-    const { avatar, author, title, quote } = randomedQuote;
+    // const { avatar, author, desc, quote } = data[randomQuoteNumb];
+    const { avatar, author, desc, quote } = randomedQuote;
 
     quoteElem.innerHTML = `
-        <img class="image" src=${avatar} alt="Profile image of the Quote author">
-        <h2>${author}</h2>
-        <span>${title}</span>
-        <p>${quote}</p>
+        <h2 class="author">${author}</h2>
+        <span class="desc">${desc}</span>
+        <p class="quote">${quote}</p>
+        <img class="image" src=${avatar} alt="Profile image of the Quote author" />
     `;
 
     // const avatarElem = document.createElement('img');

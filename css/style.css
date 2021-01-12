@@ -27,7 +27,6 @@ header {
     display: flex;
     justify-content: center;
     margin: 3rem auto;
-    /* padding: 2rem; */
 }
     header h1 {
         /* font-family: sans-serif; */
@@ -35,20 +34,21 @@ header {
         display: flex;
         justify-content: center;
         flex-direction: column;
-        font-size: 2.25rem;
+        font-size: 2.5rem;
     }
     header h1 span {
         color: #eee;
         margin-left: 2rem;
         margin-top: -1.5rem;
-        font-size: 2.75rem;
+        font-size: 3rem;
     }
 
 main.app {
     display: flex;
     flex-direction: column;
     width: 90%;
-    margin: 0 auto;
+    max-width: 40rem;
+    margin: 0 auto 0 5%;
 }
 
 .button {    
@@ -77,38 +77,37 @@ main.app {
         transform: scale(0.98);
     }
 
-.quote {
-    /* TO DO, LAYOUT OF QUOTE CARD */
+.quote-elem {
     display: grid;
     
-    justify-items: left;
+    justify-items: flex-start;
     align-items: center;
     grid-template-areas: 'I A'
                          'I T'
                          'Q Q';
-    max-width: 30rem;
+    /* max-width: 30rem; */
     margin: 3rem auto;
 }
 
-.quote img.image {
+.quote-elem img.image {
     grid-area: I;
     border-radius: 50%;
     border: 4px solid #fff;
-    width: 7rem;
+    width: 6rem;
     /* margin-left: 2rem;
     margin-bottom: -1rem; */
-    transform: translateX(2rem) translateY(1rem);
+    transform: translateX(1.5rem) translateY(1rem);
 }
-.quote h2 {
+.quote-elem h2.author {
     grid-area: A;
     font-size: 1.75rem;
-    transform: translateX(-1rem) translateY(1rem);
+    transform: translateX(-.5rem) translateY(1.5rem);
 }
-.quote span {
+.quote-elem span.desc {
     grid-area: T;
-    transform: translateX(-1rem);
+    transform: translateX(-.5rem);
 }
-.quote p {
+.quote-elem p.quote {
     grid-area: Q;
 
     background: linear-gradient(90deg, var(--theme), transparent);
