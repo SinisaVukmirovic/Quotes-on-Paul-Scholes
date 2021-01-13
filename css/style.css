@@ -29,8 +29,8 @@ body {
 }
 
 header {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     margin: 3rem auto;
 }
     header h1 {
@@ -48,42 +48,47 @@ header {
     }
 
 main.app {
+    /* border: 1px solid pink; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     /* justify-content: flex-start; */
     width: 90%;
     max-width: 40rem;
-    margin: 0 auto;
+    margin: 0 auto 0 5%;
 }
 
 .button {    
     font: inherit;
+    font-size: 1.25rem;
     /* font-size: 2rem; */
-    font-weight: bold;
+    /* font-weight: bold; */
     display: inline-block;
     line-height: 1;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    /* text-transform: uppercase; */
+    /* letter-spacing: 3px; */
     /* border: 4px solid var(--theme); */
     outline: none;
-    /* background: var(--color-secondary); */
+    border: solid 2px var(--light);
+    background: var(--theme);
+    color: var(--light);
     margin: 0 auto;
-    padding: .75rem 2rem;
+    padding: .5rem 1rem;
     cursor: pointer;
     position: relative;
-    transition: transform 100ms ease-in-out;
+    transition: all 300ms ease-in-out;
 }
-    /* .button:hover {
-        background: var(--theme);
-        color: var(--color-light);
-    } */
+    .button:hover {
+        box-shadow: 0 0 10px #fff;
+    }
     .button:active {
         transform: scale(0.98);
     }
 
 .quote-elem {
+    width: 100%;
+    /* border: 1px solid lime; */
     display: grid;
     
     /* justify-content: flex-start;
@@ -92,8 +97,9 @@ main.app {
                          'I T'
                          'Q Q';
     /* max-width: 30rem; */
-    margin: 3rem auto 3rem 0;
+    /* margin: 5rem auto; */
     grid-auto-columns: 1fr 2fr;
+    margin: 5rem auto;
 }
 
 .quote-elem img.image {
@@ -101,14 +107,10 @@ main.app {
     grid-area: I;
     width: 6rem;
     height: auto;
-    margin: auto 1.5rem -1rem;
+    margin: auto auto -1rem;
     border-radius: 50%;
     /* border-radius: .5rem; */
     border: .25rem solid var(--light);
-    margin-left: 2rem;
-    margin-bottom: -1rem;
-    /* transform: translateX(1.5rem) translateY(1rem); */
-    /* margin: auto 0 -1rem 1rem; */
 }
 .quote-elem h2.author {
     grid-area: A;
@@ -121,9 +123,7 @@ main.app {
     grid-area: T;
     /* transform: translateX(-.5rem); */
     align-self: flex-start;
-    font-style: italic;
     opacity: .8;
-
 }
 .quote-elem p.quote {
     font-family: serif;
@@ -144,9 +144,33 @@ main.app {
     body {
         background-size: 70%;
     }
+    main.app {
+        /* border: 1px solid pink;
+        display: flex;
+        flex-direction: column; */
+        align-items: flex-start;
+        /* justify-content: flex-end; */
+        width: 70%;
+        max-width: 40rem;
+        margin: 0 auto 0 10%;
+    }
+    .quote-elem img.image {
+        width: 7rem;
+    }
 }
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
+    }
+    body {
+        background-size: 40%;
+    }
+    header {
+        justify-content: flex-start;
+        margin: 3rem 20%;
+    }
+    .quote-elem img.image {
+        width: 8rem;
     }
 }
