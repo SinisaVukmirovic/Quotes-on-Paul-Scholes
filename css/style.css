@@ -1,18 +1,23 @@
 @import './reset.css';
+/* @import './config.css';
+@import './utility.css'; */
 
 * {
     --theme: #ec3d46;
+    --dark: #000;
+    --light: #fff;
 }
 
 html {
     font-size: 12px;
+    background: linear-gradient(150deg, var(--dark) 0%, var(--theme) 100%);
     /* background-image: linear-gradient(150deg, #000, var(--theme)); */
-    background: rgb(0,0,0);
-    background: linear-gradient(150deg, #000 0%, var(--theme) 100%);
+    /* background: linear-gradient(150deg, var(--dark-clr) 0%, var(--theme) 100%); */
 }
 
 body {
-    color: #fff;
+    font-family: sans-serif;
+    color: var(--light);
     min-height: 100vh;
     /* background-image: linear-gradient(150deg, #000, var(--theme)); */
     background: url("../images/scholes-back.png");
@@ -29,7 +34,6 @@ header {
     margin: 3rem auto;
 }
     header h1 {
-        /* font-family: sans-serif; */
         color: var(--theme);
         display: flex;
         justify-content: center;
@@ -38,8 +42,8 @@ header {
     }
     header h1 span {
         color: #eee;
-        margin-left: 2rem;
-        margin-top: -1.5rem;
+        margin-left: 3rem;
+        margin-top: -1.75rem;
         font-size: 3rem;
     }
 
@@ -55,7 +59,7 @@ main.app {
 
 .button {    
     font: inherit;
-    /* font-size: var(--size-200); */
+    /* font-size: 2rem; */
     font-weight: bold;
     display: inline-block;
     line-height: 1;
@@ -93,15 +97,16 @@ main.app {
 }
 
 .quote-elem img.image {
+    background-color: var(--theme);
     grid-area: I;
     width: 6rem;
     height: auto;
-    margin: auto 2rem -1rem;
-    /* border-radius: 50%; */
-    border-radius: .5rem;
-    border: 2px solid #fff;
-    /* margin-left: 2rem;
-    margin-bottom: -1rem; */
+    margin: auto 1.5rem -1rem;
+    border-radius: 50%;
+    /* border-radius: .5rem; */
+    border: .25rem solid var(--light);
+    margin-left: 2rem;
+    margin-bottom: -1rem;
     /* transform: translateX(1.5rem) translateY(1rem); */
     /* margin: auto 0 -1rem 1rem; */
 }
@@ -116,23 +121,28 @@ main.app {
     grid-area: T;
     /* transform: translateX(-.5rem); */
     align-self: flex-start;
+    font-style: italic;
+    opacity: .8;
 
 }
 .quote-elem p.quote {
+    font-family: serif;
     grid-area: Q;
-
     background: linear-gradient(90deg, var(--theme), transparent);
     padding: 2rem 1rem 1rem;
-    color: #fff;
+    /* color: var(--light); */
     font-size: 1.25rem;
     font-style: italic;
     font-weight: bold;
-    border-left: solid 5px #fff;
+    border-left: .5rem solid var(--light);
 }
 
 @media (min-width: 414px) {
     html {
         font-size: 14px;
+    }
+    body {
+        background-size: 70%;
     }
 }
 @media (min-width: 768px) {
