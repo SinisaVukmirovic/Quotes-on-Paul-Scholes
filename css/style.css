@@ -1,6 +1,4 @@
 @import './reset.css';
-/* @import './config.css';
-@import './utility.css'; */
 
 * {
     --theme: #ec3d46;
@@ -10,28 +8,23 @@
 
 html {
     font-size: 12px;
-    overflow-x: hidden;
     background: linear-gradient(150deg, var(--dark) 0%, var(--theme) 100%);
-    /* background-image: linear-gradient(150deg, #000, var(--theme)); */
-    /* background: linear-gradient(150deg, var(--dark-clr) 0%, var(--theme) 100%); */
 }
 
 body {
     font-family: sans-serif;
     color: var(--light);
     min-height: 100vh;
-    /* background-image: linear-gradient(150deg, #000, var(--theme)); */
     background: url("../images/scholes-back.png");
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: bottom right;
+
     display: flex;
     flex-direction: column;
 }
 
 header {
-    /* display: flex;
-    justify-content: center; */
     margin: 3rem auto;
 }
     header h1 {
@@ -39,21 +32,19 @@ header {
         display: flex;
         justify-content: center;
         flex-direction: column;
-        font-size: 2.5rem;
+        font-size: 2.25rem;
     }
     header h1 span {
         color: #eee;
         margin-left: 3rem;
         margin-top: -1.75rem;
-        font-size: 3rem;
+        font-size: 2.75rem;
     }
 
 main.app {
-    /* border: 1px solid pink; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* justify-content: flex-start; */
     width: 90%;
     max-width: 40rem;
     margin: 0 auto 0 5%;
@@ -62,14 +53,9 @@ main.app {
 .button {    
     font: inherit;
     font-size: 1.25rem;
-    /* font-size: 2rem; */
-    /* font-weight: bold; */
     display: inline-block;
     line-height: 1;
     text-decoration: none;
-    /* text-transform: uppercase; */
-    /* letter-spacing: 3px; */
-    /* border: 4px solid var(--theme); */
     outline: none;
     border: solid 2px var(--light);
     background: var(--theme);
@@ -88,17 +74,12 @@ main.app {
     }
 
 .quote-elem {
+    overflow-x: hidden;
     width: 100%;
-    /* border: 1px solid lime; */
     display: grid;
-    
-    /* justify-content: flex-start;
-    align-content: flex-start; */
     grid-template-areas: 'I A'
                          'I T'
                          'Q Q';
-    /* max-width: 30rem; */
-    /* margin: 5rem auto; */
     grid-auto-columns: 1fr 2fr;
     margin: 5rem auto;
 
@@ -109,43 +90,33 @@ main.app {
 .quote-elem img.image {
     background-color: var(--theme);
     grid-area: I;
-    width: 6rem;
+    width: 5rem;
     height: auto;
     margin: auto auto -1rem;
-    /* border-radius: 50%; */
     border-radius: .5rem;
     border: .2rem solid var(--light);
 
     opacity: 0;
     transform: translateY(-5rem);
-    animation: fade-down 500ms ease-in-out 350ms forwards;
+    animation: fade-down 500ms ease-in-out 400ms forwards;
 }
 .quote-elem h2.author {
     grid-area: A;
     font-size: 1.75rem;
-    /* transform: translateX(-.5rem) translateY(1.5rem); */
     align-self: flex-end;
-    /* margin: 1.5rem .5rem auto 0; */
 
     opacity: 0;
-    transform: translateY(-5rem);
+    transform: translateY(-2rem);
     animation: fade-down 500ms ease-in-out 800ms forwards;
 }
 .quote-elem span.desc {
     grid-area: T;
-    /* transform: translateX(-.5rem); */
     align-self: flex-start;
-    opacity: .8;
 
     opacity: 0;
-    transform: translateY(-5rem);
-    animation: fade-down 500ms ease-in-out 600ms forwards;
+    transform: translateY(-2rem);
+    animation: fade-desc 500ms ease-in-out 600ms forwards;
 }
-
-/* .quote-back {
-    width: 30rem;
-    background: linear-gradient(90deg, var(--theme), transparent);
-} */
 
 .quote-elem .quote {
     grid-area: Q;
@@ -159,28 +130,24 @@ main.app {
 
 .quote-elem .quote p {
     font-family: serif;
-    /* grid-area: Q;
-    background: linear-gradient(90deg, var(--theme), transparent);
-    padding: 2rem 1rem 1rem; */
-    /* color: var(--light); */
     font-size: 1.25rem;
     font-style: italic;
     font-weight: bold;
-    /* border-left: .5rem solid var(--light); */
 
     opacity: 0;
     transform: translateX(5rem);
-    animation: slide-in 500ms ease-in-out 700ms forwards;
+    animation: slide-in 500ms ease-in-out 1000ms forwards;
 }
-
-/* .fade-down {
-    animation: fade-down 500ms ease-in-out;
-} */
-
 
 @keyframes fade-down {
     to {
         opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fade-desc {
+    to {
+        opacity: .7;
         transform: translateY(0);
     }
 }
@@ -196,7 +163,7 @@ main.app {
     }
 }
 
-@media (min-width: 414px) {
+@media only screen and (min-width: 415px) and (max-width: 768px) {
     html {
         font-size: 14px;
     }
@@ -204,21 +171,17 @@ main.app {
         background-size: 70%;
     }
     main.app {
-        /* border: 1px solid pink;
-        display: flex;
-        flex-direction: column; */
         align-items: flex-start;
-        /* justify-content: flex-end; */
         width: 70%;
         max-width: 40rem;
         margin: 0 auto 0 10%;
     }
     .quote-elem img.image {
-        width: 7rem;
+        width: 6rem;
     }
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 769px) {
     html {
         font-size: 16px;
     }
@@ -226,10 +189,16 @@ main.app {
         background-size: 40%;
     }
     header {
-        justify-content: flex-start;
-        margin: 3rem 20%;
+        justify-content: flex-start; 
+        margin: 3rem 13%;
+    }
+    header h1 {
+        font-size: 3.5rem;
+    }
+    header h1 span {
+        font-size: 4rem;
     }
     .quote-elem img.image {
-        width: 8rem;
+        width: 7rem;
     }
 }
