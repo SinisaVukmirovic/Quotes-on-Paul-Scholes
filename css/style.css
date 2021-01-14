@@ -10,6 +10,7 @@
 
 html {
     font-size: 12px;
+    overflow-x: hidden;
     background: linear-gradient(150deg, var(--dark) 0%, var(--theme) 100%);
     /* background-image: linear-gradient(150deg, #000, var(--theme)); */
     /* background: linear-gradient(150deg, var(--dark-clr) 0%, var(--theme) 100%); */
@@ -100,6 +101,9 @@ main.app {
     /* margin: 5rem auto; */
     grid-auto-columns: 1fr 2fr;
     margin: 5rem auto;
+
+    opacity: 0;
+    animation: fade-in 500ms ease-in-out forwards;
 }
 
 .quote-elem img.image {
@@ -108,9 +112,13 @@ main.app {
     width: 6rem;
     height: auto;
     margin: auto auto -1rem;
-    border-radius: 50%;
-    /* border-radius: .5rem; */
-    border: .25rem solid var(--light);
+    /* border-radius: 50%; */
+    border-radius: .5rem;
+    border: .2rem solid var(--light);
+
+    opacity: 0;
+    transform: translateY(-5rem);
+    animation: fade-down 500ms ease-in-out 350ms forwards;
 }
 .quote-elem h2.author {
     grid-area: A;
@@ -118,23 +126,74 @@ main.app {
     /* transform: translateX(-.5rem) translateY(1.5rem); */
     align-self: flex-end;
     /* margin: 1.5rem .5rem auto 0; */
+
+    opacity: 0;
+    transform: translateY(-5rem);
+    animation: fade-down 500ms ease-in-out 800ms forwards;
 }
 .quote-elem span.desc {
     grid-area: T;
     /* transform: translateX(-.5rem); */
     align-self: flex-start;
     opacity: .8;
+
+    opacity: 0;
+    transform: translateY(-5rem);
+    animation: fade-down 500ms ease-in-out 600ms forwards;
 }
-.quote-elem p.quote {
-    font-family: serif;
+
+/* .quote-back {
+    width: 30rem;
+    background: linear-gradient(90deg, var(--theme), transparent);
+} */
+
+.quote-elem .quote {
     grid-area: Q;
     background: linear-gradient(90deg, var(--theme), transparent);
     padding: 2rem 1rem 1rem;
+    border-left: .5rem solid var(--light);
+
+    opacity: 0;
+    animation: fade-in 500ms ease-in-out 200ms forwards;
+}
+
+.quote-elem .quote p {
+    font-family: serif;
+    /* grid-area: Q;
+    background: linear-gradient(90deg, var(--theme), transparent);
+    padding: 2rem 1rem 1rem; */
     /* color: var(--light); */
     font-size: 1.25rem;
     font-style: italic;
     font-weight: bold;
-    border-left: .5rem solid var(--light);
+    /* border-left: .5rem solid var(--light); */
+
+    opacity: 0;
+    transform: translateX(5rem);
+    animation: slide-in 500ms ease-in-out 700ms forwards;
+}
+
+/* .fade-down {
+    animation: fade-down 500ms ease-in-out;
+} */
+
+
+@keyframes fade-down {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+@keyframes slide-in {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @media (min-width: 414px) {
