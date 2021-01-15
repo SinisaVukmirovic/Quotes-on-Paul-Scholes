@@ -10,9 +10,6 @@ const generateQuote = () => {
         let randomQuoteNumb = getRandomQuoteNumb(amountOfData);
         let randomedQuote = results[randomQuoteNumb];
 
-        // const { avatar, author, desc, quote } = results[randomQuoteNumb];
-        // console.log(author);
-
         displayQuoteInfo(randomedQuote);
 
     }).catch(error => {
@@ -27,10 +24,6 @@ const getQuotesData = async () => {
     const data = await response.json();
 
     return data;
-
-    // let randomQuoteNumb = getRandomQuoteNumb(dataAmount);
-    
-    // displayQuoteInfo(data, randomQuoteNumb);
 };
 
 const getRandomQuoteNumb = (amountOfData) => {
@@ -39,7 +32,6 @@ const getRandomQuoteNumb = (amountOfData) => {
 
 
 const displayQuoteInfo = (randomedQuote) => {
-    // const { avatar, author, desc, quote } = data[randomQuoteNumb];
     const { avatar, author, desc, quote } = randomedQuote;
 
     quoteElem.innerHTML = `
@@ -50,14 +42,6 @@ const displayQuoteInfo = (randomedQuote) => {
         </div>
         <img class="image" src=${avatar} alt="Profile image of the Quote author" />
     `;
-
-    // const avatarElem = document.createElement('img');
-
-    // console.log(quote);
-    // avatarElem.setAttribute('src', avatar);
-    // avatarElem.setAttribute('alt', 'Profile image of the author');
-    // // avatar.alt = `${data[33].avatar}`;
-    // appElem.appendChild(avatarElem);
 };
 
 generateBtnElem.addEventListener('click', generateQuote);
