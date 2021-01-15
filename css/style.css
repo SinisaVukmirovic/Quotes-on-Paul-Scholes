@@ -64,7 +64,7 @@ main.app {
     padding: .5rem 1rem;
     cursor: pointer;
     position: relative;
-    transition: all 300ms ease-in-out;
+    transition: all 300ms ease-out;
 }
     .button:hover {
         box-shadow: 0 0 10px #fff;
@@ -75,16 +75,18 @@ main.app {
 
 .quote-elem {
     overflow-x: hidden;
+    overflow-y: hidden;
     width: 100%;
     display: grid;
     grid-template-areas: 'I A'
                          'I T'
                          'Q Q';
     grid-auto-columns: 1fr 2fr;
-    margin: 5rem auto;
+    margin: 3rem auto;
+    padding-top: 2rem;
 
     opacity: 0;
-    animation: fade-in 500ms ease-in-out forwards;
+    animation: fade-in 500ms ease-out forwards;
 }
 
 .quote-elem img.image {
@@ -97,8 +99,8 @@ main.app {
     border: .2rem solid var(--light);
 
     opacity: 0;
-    transform: translateY(-5rem);
-    animation: fade-down 500ms ease-in-out 400ms forwards;
+    transform: translateY(-3rem);
+    animation: fade-down 400ms ease-out 400ms forwards;
 }
 .quote-elem h2.author {
     grid-area: A;
@@ -106,16 +108,17 @@ main.app {
     align-self: flex-end;
 
     opacity: 0;
-    transform: translateY(-2rem);
-    animation: fade-down 500ms ease-in-out 800ms forwards;
+    transform: translateY(-3rem);
+    animation: fade-down 400ms ease-out 800ms forwards;
 }
 .quote-elem span.desc {
     grid-area: T;
     align-self: flex-start;
+    font-style: italic;
 
     opacity: 0;
-    transform: translateY(-2rem);
-    animation: fade-desc 500ms ease-in-out 600ms forwards;
+    transform: translateY(-3rem);
+    animation: fade-desc 400ms ease-out 600ms forwards;
 }
 
 .quote-elem .quote {
@@ -125,7 +128,7 @@ main.app {
     border-left: .5rem solid var(--light);
 
     opacity: 0;
-    animation: fade-in 500ms ease-in-out 200ms forwards;
+    animation: fade-in 400ms ease-out 200ms forwards;
 }
 
 .quote-elem .quote p {
@@ -136,7 +139,7 @@ main.app {
 
     opacity: 0;
     transform: translateX(5rem);
-    animation: slide-in 500ms ease-in-out 1000ms forwards;
+    animation: slide-in 400ms ease-out 1000ms forwards;
 }
 
 @keyframes fade-down {
@@ -147,7 +150,7 @@ main.app {
 }
 @keyframes fade-desc {
     to {
-        opacity: .7;
+        opacity: .8;
         transform: translateY(0);
     }
 }
@@ -169,6 +172,12 @@ main.app {
     }
     body {
         background-size: 70%;
+    }
+    header h1 {
+        font-size: 3rem;
+    }
+    header h1 span {
+        font-size: 3.5rem;
     }
     main.app {
         align-items: flex-start;
