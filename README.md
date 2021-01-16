@@ -1,4 +1,4 @@
-![Image](https://github.com/SinisaVukmirovic/Quotes-on-Paul-Scholes/master/app-demo.jpg)
+![Image](https://raw.githubusercontent.com/SinisaVukmirovic/Quotes-on-Paul-Scholes/master/app-demo.jpg)
 
 ### Quotes on Paul Scholes
 
