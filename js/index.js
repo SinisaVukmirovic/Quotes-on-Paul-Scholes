@@ -18,7 +18,9 @@ const generateQuote = () => {
 };
 
 const getQuotesData = async () => {
-    const jsonDataUrl = '../data/quotes.json';
+    // const jsonDataUrl = '../data/quotes.json';
+    // !!! not sure why the above line didnot work on server !!!
+    const jsonDataUrl = './data/quotes.json';
 
     const response = await fetch(jsonDataUrl);
     const data = await response.json();
